@@ -38,5 +38,9 @@
   "Client": {
     "dataSource": "mysql",
     "public": true
+  },
+  "ChatMessage": {
+    "dataSource": "mysql",
+    "public": true
   }
 }
