@@ -4,18 +4,42 @@ version: '2'
 # All of the images/containers compose will deal with
 services:
 
-    # our strongloop service shall be known as 'api'
-    api:
-        # use your user name
-        image: iamvanja/chat-server
+  # our strongloop service shall be known as 'api'
+  api:
+    image: iamvanja/chat-server
 
-        # map the containers port of 3000 to our local 3002
-        ports:
-          - 3002:3000
+    # map the containers port of 3000 to our local 3002
+    ports:
+      - 3002:3000
 
-        # mount our current directory (code) to the container's /usr/src/api
-        volumes:
-          - .:/usr/src/api
+    # mount our current directory (code) to the container's /usr/src/api
+    volumes:
+      - .:/usr/src/api
 
-        # the default command unless we pass it one
-        command: nodemon .
+    # the default command unless we pass it one
+    command: nodemon .
+
+
+  mysqlDb:
+
+    # This is the official MySQL 5.6 docker image
+    image: mysql:5.6
+
+    # These are required variables for the official MySQL image
+    environment:
+      MYSQL_ROOT_PASSWORD: "${DB_ROOT}"
+      MYSQL_DATABASE: "${DB_NAME}"
+      MYSQL_USER: "${DB_USER}"
+      MYSQL_PASSWORD: "${DB_PWD}"
+
+    # Keep it mapped to the usual MySQL port
+    ports:
+      - 3306:3306
+
+    # Create a separate volume on our machine to map to the container's default mysql data directory
+    volumes:
+      - chatServerDev:/var/lib/mysql
+
+# These must be declared to be used above
+volumes:
+  chatServerDev:
