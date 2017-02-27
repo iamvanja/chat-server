@@ -21,6 +21,13 @@
       "principalId": "$authenticated",
       "permission": "ALLOW",
       "property": ["__create__chatMessages"]
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": ["__get__chatMessages", "__findById__chatMessages"]
     }
   ],
   "methods": {}
