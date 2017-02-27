@@ -1,0 +1,21 @@
+# The standard now
+version: '2'
+
+# All of the images/containers compose will deal with
+services:
+
+    # our strongloop service shall be known as 'api'
+    api:
+        # use your user name
+        image: iamvanja/chat-server
+
+        # map the containers port of 3000 to our local 3002
+        ports:
+          - 3002:3000
+
+        # mount our current directory (code) to the container's /usr/src/api
+        volumes:
+          - .:/usr/src/api
+
+        # the default command unless we pass it one
+        command: nodemon .
