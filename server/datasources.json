@@ -2,5 +2,14 @@
   "db": {
     "name": "db",
     "connector": "memory"
+  },
+  "mysql": {
+    "name": "mysql",
+    "connector": "mysql",
+    "database": "strongdevdb",
+    "password": "strongdevpwd",
+    "user": "strongdevuser",
+    "port": 3306,
+    "host": "mysqlDb"
   }
 }
