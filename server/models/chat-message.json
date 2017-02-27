@@ -11,8 +11,7 @@
       "required": true
     },
     "created": {
-      "type": "date",
-      "required": true
+      "type": "date"
     }
   },
   "validations": [],
