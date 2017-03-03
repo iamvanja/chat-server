@@ -18,9 +18,16 @@
   "relations": {},
   "acls": [
     {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": ""
+    },
+    {
       "accessType": "*",
       "principalType": "ROLE",
-      "principalId": "$everyone",
+      "principalId": "$unauthenticated",
       "permission": "DENY"
     }
   ],
