@@ -2,6 +2,12 @@
 
 module.exports = function(Chatmessage) {
 
+  Chatmessage.beforeRemote('create', function(context, user, next) {
+    context.args.data.created = Date.now();
+    context.args.data.clientId = context.req.accessToken.userId;
+    next();
+  });
+
   Chatmessage.observe('after save', function(ctx, next) {
     // saved
     if (ctx.instance) {

@@ -12,7 +12,7 @@
     },
     "created": {
       "type": "date",
-      "default": "$now"
+      "required": true
     }
   },
   "validations": [],
