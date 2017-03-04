@@ -2,6 +2,8 @@
 
 module.exports = function(Chatmessage) {
 
+  Chatmessage.disableRemoteMethod('__get__client');
+
   Chatmessage.beforeRemote('create', function(context, user, next) {
     context.args.data.created = Date.now();
     context.args.data.clientId = context.req.accessToken.userId;
